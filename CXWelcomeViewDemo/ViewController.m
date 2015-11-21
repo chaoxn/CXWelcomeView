@@ -19,13 +19,12 @@
 {
     [super viewDidLoad];
     
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"YES"]) {
-        
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isFirstStart"]) {
+
         CXWelcomeView *welcomeView = [[CXWelcomeView alloc]initWithFrame:self.view.frame];
-        welcomeView.pageCount = 4;
+        welcomeView.pageCount = 5;
         [self.view addSubview:welcomeView];
     }
-    
 }
 
 - (void)didReceiveMemoryWarning

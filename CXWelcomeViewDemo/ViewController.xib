@@ -14,25 +14,8 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HELLO WORLD !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3c-FT-wvE">
-                    <rect key="frame" x="77" y="112.5" width="221" height="142"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="221" id="JM0-gG-ODm"/>
-                        <constraint firstAttribute="height" constant="142" id="eSX-iV-awt"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-            </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="Q3c-FT-wvE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JdE-kA-6aO"/>
-                <constraint firstItem="Q3c-FT-wvE" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-150" id="XZ2-mV-xzg"/>
-            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="258.5" y="356.5"/>
         </view>

@@ -32,6 +32,8 @@
     return self;
 }
 
+#pragma mark- delegate && event
+
 - (void)doneButtonClicked:(id)sender
 {
     [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -39,8 +41,8 @@
         self.alpha = 0;
     } completion:^(BOOL finished) {
         
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isFirstStart"];
         [self removeFromSuperview];
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"YES"];
     }];
 }
 
@@ -62,7 +64,6 @@
         
         UIImageView *imageview = [[UIImageView alloc] initWithFrame:self.frame];
         imageview.backgroundColor = [UIColor greenColor];
-        imageview.contentMode = UIViewContentModeScaleAspectFit;
         imageview.image = [UIImage imageNamed:[NSString stringWithFormat:@"welcome%zd",i]];
         [view addSubview:imageview];
         
@@ -76,7 +77,8 @@
     [view addSubview:self.doneButton];
 }
 
-#pragma mark- setter and getter
+#pragma mark- setter && getter
+
 - (void)setPageCount:(NSInteger)pageCount
 {
     _pageCount = pageCount;
@@ -89,10 +91,9 @@
 {
     if (_scrollView == nil) {
         
-        CGPoint scrollPoint = CGPointMake(0, 0);
         _scrollView = ({
            UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.frame];
-            [scrollView setContentOffset:scrollPoint animated:YES];
+            [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
             scrollView.pagingEnabled = YES;
             scrollView.showsVerticalScrollIndicator = NO;
             scrollView.showsHorizontalScrollIndicator = NO;
@@ -109,10 +110,10 @@
         
         _pageControl = ({
             UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:({
-                CGRect frame = CGRectMake(0, self.frame.size.height/2, self.frame.size.width, 10);
+                CGRect frame = CGRectMake(0, ScreenHeight * 0.9, ScreenWidth, 10);
                 frame;
             })];
-            pageControl.currentPageIndicatorTintColor = [UIColor redColor];
+            pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
             pageControl;
         });
     }
@@ -125,11 +126,14 @@
         
         _doneButton = ({
             UIButton *button = [[UIButton alloc] initWithFrame:({
-                CGRect frame = CGRectMake(90 * ScreenWidth / 375, 530 * ScreenHeight / 667 , 210 * zoomRate, 65 * zoomRate);
+                CGRect frame = CGRectMake(90 * ScreenWidth / 375, 530 * ScreenHeight / 667 , 210 * zoomRate, 60 * zoomRate);
                 frame;
             })];
             [button addTarget:self action:@selector(doneButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-            button.backgroundColor = [UIColor redColor];
+            [button setTitle:@"welcome!" forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            button.layer.cornerRadius = 10;
+            button.backgroundColor = [UIColor colorWithRed:0.286  green:0.482  blue:0.663 alpha:0.618];
             button;
         });
     }
